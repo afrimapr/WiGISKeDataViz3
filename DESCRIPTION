@@ -19,6 +19,11 @@ Imports:
     dplyr,
     wbstats,
     stringr,
-    rgeoboundaries (>= 0.0.0.9000)
+    rgeoboundaries (>= 0.0.0.9000),
+    lubridate,
+    janitor,
+    tidyr,
+    googlesheets4,
+    readr
 Remotes: 
     wmgeolab/rgeoboundaries

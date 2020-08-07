@@ -1,27 +1,28 @@
 #' Get pregnancy data provided by WiGISKe -
 #' http://wigis.co.ke/project/visualizing-teenage-pregnancy-and-related-factors/
 #'
-#' @param sheet_ss A way for googlesheets4 to identify the Google Spreadsheet containing the data.
+#' @param csv_file A link to a CSV file online or a path to a local CSV file as character string.
 #' See googlesheets4 for documentation on ss parameter. Character string ID or URL.
 #' @return A tibble containing a cleaned up version of the pregnancy data
-#' @importFrom googlesheets4 read_sheet
+#' @importFrom readr read_csv
 #' @importFrom janitor clean_names
 #' @importFrom dplyr rename relocate select mutate case_when
 #' @importFrom tidyr separate
+#' @importFrom stringr str_remove
 #' @importFrom lubridate as_date
 #' @examples
-#' ken_preg <- get_pregnancy_data(sheet_ss = "161245790")
+#' ken_preg <- get_pregnancy_data(csv_file = "https://tinyurl.com/y35htfoj")
 #' @author Anelda van der Walt
 #' @export
-get_pregnancy_data <- function(sheet_ss){
+get_pregnancy_data <- function(csv_file){
   # Read data from a copy of the original GS to help with permission settings
-  gs_preg <- googlesheets4::read_sheet(ss = sheet_ss)
+  gs_preg <- readr::read_csv(csv_file)
 
   preg_columns <- gs_preg %>%
     # Clean column names
     janitor::clean_names() %>%
-    dplyr::rename(.data$percentage_pregnant_women_as_adolescents = "of_pregnant_women_adolescents_10_19_years",
-                  .data$estimated_adolescent_abortions_after_first_anc = "estimated_post_abortion") %>%
+    dplyr::rename(percentage_pregnant_women_as_adolescents = "of_pregnant_women_adolescents_10_19_years",
+                  estimated_adolescent_abortions_after_first_anc = "estimated_post_abortion") %>%
     # Reorder columns to help me see what is there and what relates to what
     dplyr::relocate(.data$adolescents_15_19_years_with_pregnancy, .after="adolescents_10_14_years_with_pregnancy") %>%
     dplyr::relocate(.data$prop_of_monthly_anc_visit_by_preg_adolescent, .after="adolescent_family_planning_uptake_15_19_yrs") %>%
