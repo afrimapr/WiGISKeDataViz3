@@ -28,8 +28,6 @@ version available on Github as follows:
 # install.packages("devtools") # if not already installed
 
 devtools::install_github("afrimapr/WiGISKeDataViz3")
-#> Skipping install of 'WiGISKeDataViz3' from a github remote, the SHA1 (84fccae7) has not changed since last install.
-#>   Use `force = TRUE` to force installation
 ```
 
 ## Example
@@ -41,7 +39,18 @@ dataformat and cleanup code) include “SP.POP.1014.FE”, “SP.POP.1014.MA”,
 
 ``` r
 library(WiGISKeDataViz3)
+#> Warning: replacing previous import 'vctrs::data_frame' by 'tibble::data_frame'
+#> when loading 'dplyr'
 
 ## Obtaining population data for females from Kenya ages 10 - 14 for the years 2016 - 2019
 ken_fem_1014 <- get_wb_gender_age_pop_data(country_iso = "KEN", indicator_code = "SP.POP.1014.FE", start = 2016, end = 2019, new_date = 2020)
+head(ken_fem_1014)
+#> # A tibble: 5 x 5
+#>   iso3c  date indicator_value age   gender
+#>   <chr> <dbl>           <dbl> <chr> <chr> 
+#> 1 KEN    2016         3074808 1014  f     
+#> 2 KEN    2017         3149007 1014  f     
+#> 3 KEN    2018         3222081 1014  f     
+#> 4 KEN    2019         3288073 1014  f     
+#> 5 KEN    2020         3362403 1014  f
 ```
