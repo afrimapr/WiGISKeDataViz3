@@ -38,7 +38,7 @@ indicator \code{indicator_code} with an additional row for the new year.
 Get World Bank population data by gender and age group for several years.
 }
 \examples{
-get_wb_gender_age_pop_data(country_iso = "KEN", indicator_code = "SP.POP.1014.FE",
+ken_1014_fem <- get_wb_gender_age_pop_data(country_iso = "KEN", indicator_code = "SP.POP.1014.FE",
 start = 2016, end = 2019, new_date = 2020)
 }
 \author{

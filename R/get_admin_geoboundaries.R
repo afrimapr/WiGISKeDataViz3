@@ -10,7 +10,9 @@
 #' @import rgeoboundaries
 #' @importFrom stringr str_to_title
 #' @importFrom dplyr mutate
-#' @examples ken_adm3 <- get_admin_geoboundaries(country_name = "kenya", type = "sscgs", admin_level = "adm1")
+#' @examples
+#' ken_adm3 <- get_admin_geoboundaries(country_name = "kenya",
+#' boundary_type = "sscgs", admin_level = "adm3")
 #' @author Anelda van der Walt
 #' @export
 get_admin_geoboundaries <- function(country_name = "kenya", boundary_type = "sscgs", admin_level){

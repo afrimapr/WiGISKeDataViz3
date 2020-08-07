@@ -18,7 +18,7 @@
 #' @importFrom stringr str_extract str_to_lower
 #' @importFrom wbstats wb_data
 #' @examples
-#' get_wb_gender_age_pop_data(country_iso = "KEN", indicator_code = "SP.POP.1014.FE",
+#' ken_1014_fem <- get_wb_gender_age_pop_data(country_iso = "KEN", indicator_code = "SP.POP.1014.FE",
 #' start = 2016, end = 2019, new_date = 2020)
 #' @author Anelda van der Walt
 #' @export
@@ -40,7 +40,7 @@ get_wb_gender_age_pop_data <- function(country_iso = "KEN", indicator_code, star
   # Calculate the mean population growth since start date to calculate estimate for newest date
   # Multiply the last indicator value (nrow used to find last value in vector) with the mean of the growth for start until the last available date
   # Growth is not available in first year so we have to remove the NAs to calculate mean
-  new_row <-  data.frame(iso3c = country_iso, date = new_date,
+  new_row <-  tibble(iso3c = country_iso, date = new_date,
                          indicator_value = round(pop_df$indicator_value[nrow(pop_df)]*mean(pop_df$growth, na.rm = TRUE)),
                          growth = NA)
 
