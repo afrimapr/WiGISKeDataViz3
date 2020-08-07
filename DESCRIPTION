@@ -26,4 +26,4 @@ Imports:
     googlesheets4,
     readr
 Remotes: 
-    wmgeolab/rgeoboundaries
+    gitlab::dickoa/rgeoboundaries
