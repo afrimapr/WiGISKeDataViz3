@@ -26,6 +26,10 @@ An sf object containing shape data for \code{country_name} \code{admin_level}
 \description{
 Get admin boundaries from GeoBoundaries via rgeoboundaries for drawing maps .
 }
+\examples{
+ken_adm3 <- get_admin_geoboundaries(country_name = "kenya",
+boundary_type = "sscgs", admin_level = "adm3")
+}
 \author{
 Anelda van der Walt
 }
