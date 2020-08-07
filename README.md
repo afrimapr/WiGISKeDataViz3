@@ -89,21 +89,6 @@ str(ken_adm2)
 ``` r
 
 ken_preg <-  get_pregnancy_data(csv_file = "https://tinyurl.com/y35htfoj")
-#> Parsed with column specification:
-#> cols(
-#>   .default = col_character(),
-#>   perioddescription = col_logical(),
-#>   organisationunitdescription = col_logical(),
-#>   `() of pregnant women adolescents (10-19 years)` = col_double(),
-#>   `adolescent pregnancy` = col_double(),
-#>   `estimated post abortion` = col_double(),
-#>   `prop of monthly anc visit by preg adolescent` = col_double(),
-#>   `adolescents (10-14 years) with  pregnancy` = col_double(),
-#>   `adolescent family planning uptake 10-14 yrs` = col_double(),
-#>   `adolescent family planning uptake 15-19 yrs` = col_double(),
-#>   `adolescents (15-19 years) with  pregnancy` = col_double()
-#> )
-#> See spec(...) for full column specifications.
 head(ken_preg)
 #> # A tibble: 6 x 17
 #>   year  month   day quarter date       orgunitlevel2 orgunitlevel3 orgunitlevel4

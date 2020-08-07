@@ -61,7 +61,7 @@ str(ken_adm2)
 
 ### Pregnancy data
 
-```{r example pregancy}
+```{r example pregancy, warning=FALSE, message=FALSE}
 
 ken_preg <-  get_pregnancy_data(csv_file = "https://tinyurl.com/y35htfoj")
 head(ken_preg)
