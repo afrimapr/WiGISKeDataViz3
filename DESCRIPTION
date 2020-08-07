@@ -18,4 +18,5 @@ Language: en-US
 Imports: 
     dplyr,
     wbstats,
-    stringr
+    stringr,
+    rgeoboundaries
