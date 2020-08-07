@@ -12,5 +12,10 @@ LazyData: true
 RoxygenNote: 7.1.0
 Suggests: 
     testthat,
-    spelling
+    spelling,
+    covr
 Language: en-US
+Imports: 
+    dplyr,
+    wbstats,
+    stringr
