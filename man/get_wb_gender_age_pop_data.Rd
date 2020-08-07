@@ -4,20 +4,31 @@
 \alias{get_wb_gender_age_pop_data}
 \title{Get World Bank population data by gender and age group for several years.}
 \usage{
-get_wb_gender_age_pop_data(country_iso, indicator_code, start, end, new_date)
+get_wb_gender_age_pop_data(
+  country_iso = "KEN",
+  indicator_code,
+  start = 2016,
+  end = 2019,
+  new_date = 2020
+)
 }
 \arguments{
-\item{country_iso}{The three letter ISO code for a country in capital letters as character string.}
+\item{country_iso}{The three letter ISO code for a country in capital letters as character string.
+Default value is "KEN" for Kenya.}
 
 \item{indicator_code}{The World Bank data indicator code in all capitals for the dataset in question
-- can be obtained by running wb_indicators() as character string e.g. SP.POP.1014.FE .}
+- can be obtained by running wb_indicators() as character string e.g. SP.POP.1014.FE. No default value.
+Should be one of SP.POP.1014.FE, SP.POP.1014.ME, SP.POP.1519.FE or SP.POP.15.19.ME.}
 
-\item{start}{The start year from which to collect data from the original dataset - numerical}
+\item{start}{The start year from which to collect data from the original dataset - numerical.
+Default is 2016.}
 
-\item{end}{The end year until which to collect data from the original dataset - numerical}
+\item{end}{The end year until which to collect data from the original dataset - numerical.
+Default is 2019.}
 
 \item{new_date}{The new year for which to calculate population data based on existing years
-in the dataset - as numerical}
+in the dataset - as numerical.
+Default is 2020}
 }
 \value{
 A dataframe containing population data from \code{start} to \code{end} for the
