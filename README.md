@@ -83,3 +83,43 @@ str(ken_adm2)
 #>  - attr(*, "agr")= Factor w/ 3 levels "constant","aggregate",..: NA NA NA NA NA
 #>   ..- attr(*, "names")= chr [1:5] "shapeName" "shapeISO" "shapeID" "shapeGroup" ...
 ```
+
+### Pregnancy data
+
+``` r
+
+ken_preg <-  get_pregnancy_data(csv_file = "https://tinyurl.com/y35htfoj")
+#> Parsed with column specification:
+#> cols(
+#>   .default = col_character(),
+#>   perioddescription = col_logical(),
+#>   organisationunitdescription = col_logical(),
+#>   `() of pregnant women adolescents (10-19 years)` = col_double(),
+#>   `adolescent pregnancy` = col_double(),
+#>   `estimated post abortion` = col_double(),
+#>   `prop of monthly anc visit by preg adolescent` = col_double(),
+#>   `adolescents (10-14 years) with  pregnancy` = col_double(),
+#>   `adolescent family planning uptake 10-14 yrs` = col_double(),
+#>   `adolescent family planning uptake 15-19 yrs` = col_double(),
+#>   `adolescents (15-19 years) with  pregnancy` = col_double()
+#> )
+#> See spec(...) for full column specifications.
+head(ken_preg)
+#> # A tibble: 6 x 17
+#>   year  month   day quarter date       orgunitlevel2 orgunitlevel3 orgunitlevel4
+#>   <chr> <dbl> <dbl> <chr>   <date>     <chr>         <chr>         <chr>        
+#> 1 2020      1     1 1       2020-01-01 Baringo       Baringo Cent… Ewalel/Chapc…
+#> 2 2020      1     1 1       2020-01-01 Baringo       Baringo Cent… Kabarnet     
+#> 3 2020      1     1 1       2020-01-01 Baringo       Baringo Cent… Kapropita    
+#> 4 2020      1     1 1       2020-01-01 Baringo       Baringo Cent… Sacho        
+#> 5 2020      1     1 1       2020-01-01 Baringo       Baringo Cent… Tenges       
+#> 6 2020      4     1 2       2020-04-01 Baringo       Baringo Cent… Ewalel/Chapc…
+#> # … with 9 more variables: organisationunitcode <chr>,
+#> #   percentage_pregnant_women_as_adolescents <dbl>, adolescent_pregnancy <dbl>,
+#> #   adolescents_10_14_years_with_pregnancy <dbl>,
+#> #   adolescents_15_19_years_with_pregnancy <dbl>,
+#> #   adolescent_family_planning_uptake_10_14_yrs <dbl>,
+#> #   adolescent_family_planning_uptake_15_19_yrs <dbl>,
+#> #   prop_of_monthly_anc_visit_by_preg_adolescent <dbl>,
+#> #   estimated_adolescent_abortions_after_first_anc <dbl>
+```

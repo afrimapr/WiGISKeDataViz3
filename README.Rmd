@@ -58,3 +58,12 @@ ken_adm2 <- get_admin_geoboundaries(country_name = "kenya", boundary_type = "ssc
 str(ken_adm2)
 
 ```
+
+### Pregnancy data
+
+```{r example pregancy}
+
+ken_preg <-  get_pregnancy_data(csv_file = "https://tinyurl.com/y35htfoj")
+head(ken_preg)
+
+```
