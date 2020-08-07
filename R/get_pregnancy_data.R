@@ -3,11 +3,7 @@
 #'
 #' @param sheet_ss A way for googlesheets4 to identify the Google Spreadsheet containing the data.
 #' See googlesheets4 for documentation on ss parameter. Character string ID or URL.
-#' @param boundary_type GeoBoundaries allow a choice between Simplified Single Country Unstandardized (sscu)  or
-#' Simplified Single Country Globally Standardized (sscgs) . Character string. Default is "sscgs"
-#' @param admin_level Character string selecting the admin level for which to obtain boundaries.
-#' Depends on data available from GeoBoundaries. Character string. e.g. "adm1", "adm2", etc.
-#' @return An sf object containing shape data for \code{country_name} \code{admin_level}
+#' @return A tibble containing a cleaned up version of the pregnancy data
 #' @importFrom googlesheets4 read_sheet
 #' @importFrom janitor clean_names
 #' @importFrom dplyr rename relocate select mutate case_when
@@ -17,7 +13,7 @@
 #' ken_preg <- get_pregnancy_data(sheet_ss = "161245790")
 #' @author Anelda van der Walt
 #' @export
-get_pregnancy_data <- function(sheet_ss, ){
+get_pregnancy_data <- function(sheet_ss){
   # Read data from a copy of the original GS to help with permission settings
   gs_preg <- googlesheets4::read_sheet(ss = sheet_ss)
 
