@@ -27,7 +27,7 @@ The goal of WiGISKeDataViz3 is to facilitate easy access to datasets, analysis a
 
 WiGISKeDataViz3 is not on CRAN but you can install the development version available on Github as follows:
 
-``` {r}
+``` {r warning = FALSE, message = FALSE}
 # install.packages("devtools") # if not already installed
 
 devtools::install_github("afrimapr/WiGISKeDataViz3")
@@ -43,6 +43,7 @@ library(WiGISKeDataViz3)
 
 ## Obtaining population data for females from Kenya ages 10 - 14 for the years 2016 - 2019
 ken_fem_1014 <- get_wb_gender_age_pop_data(country_iso = "KEN", indicator_code = "SP.POP.1014.FE", start = 2016, end = 2019, new_date = 2020)
+head(ken_fem_1014)
 
 ```
 
