@@ -9,7 +9,7 @@ Description: More about what it does (maybe more than one line)
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 7.1.0
+RoxygenNote: 7.1.1
 Suggests: 
     testthat,
     spelling,
@@ -20,5 +20,5 @@ Imports:
     wbstats,
     stringr,
     rgeoboundaries (>= 0.0.0.9000)
-Remotes:  
+Remotes: 
     wmgeolab/rgeoboundaries
