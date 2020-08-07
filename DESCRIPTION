@@ -19,4 +19,6 @@ Imports:
     dplyr,
     wbstats,
     stringr,
-    rgeoboundaries
+    rgeoboundaries (>= 0.0.0.9000)
+Remotes:  
+    wmgeolab/rgeoboundaries
