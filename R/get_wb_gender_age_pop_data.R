@@ -14,9 +14,12 @@
 #' Default is 2020
 #' @return A dataframe containing population data from \code{start} to \code{end} for the
 #' indicator \code{indicator_code} with an additional row for the new year.
-#' @import dplyr
+#' @importFrom dplyr rename mutate select lag bind_rows
+#' @importFrom magrittr "%>%"
 #' @importFrom stringr str_extract str_to_lower
 #' @importFrom wbstats wb_data
+#' @importFrom rlang .data
+#' @importFrom tibble tibble
 #' @examples
 #' ken_1014_fem <- get_wb_gender_age_pop_data(country_iso = "KEN", indicator_code = "SP.POP.1014.FE",
 #' start = 2016, end = 2019, new_date = 2020)

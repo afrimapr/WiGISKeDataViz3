@@ -5,6 +5,8 @@
 #' See googlesheets4 for documentation on ss parameter. Character string ID or URL.
 #' @return A tibble containing a cleaned up version of the pregnancy data
 #' @importFrom readr read_csv
+#' @importFrom magrittr "%>%"
+#' @importFrom rlang .data
 #' @importFrom janitor clean_names
 #' @importFrom dplyr rename relocate select mutate case_when
 #' @importFrom tidyr separate
