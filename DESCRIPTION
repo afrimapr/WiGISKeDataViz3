@@ -24,6 +24,9 @@ Imports:
     janitor,
     tidyr,
     googlesheets4,
-    readr
+    readr,
+    magrittr,
+    tibble,
+    rlang
 Remotes: 
-    gitlab::dickoa/rgeoboundaries
+    dickoa/rgeoboundaries

@@ -8,6 +8,8 @@
 #' Depends on data available from GeoBoundaries. Character string. e.g. "adm1", "adm2", etc.
 #' @return An sf object containing shape data for \code{country_name} \code{admin_level}
 #' @importFrom rgeoboundaries gb_adm0 gb_adm1 gb_adm2 gb_adm3
+#' @importFrom rlang .data
+#' @importFrom magrittr "%>%"
 #' @importFrom stringr str_to_title
 #' @importFrom dplyr mutate
 #' @examples
