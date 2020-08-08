@@ -7,7 +7,24 @@ cache: packages
 r_github_packages: dickoa/rgeoboundaries
 
 before_install:
-  - sudo apt-get -y libudunits2-dev libgdal-dev libgeos-dev libproj-dev
+  - sudo apt-get install libproj-dev libgeos++-dev
+  - cd
+  - wget http://download.osgeo.org/gdal/2.1.0/gdal-2.1.0.tar.gz
+  - tar zxf gdal-2.1.0.tar.gz
+  - cd gdal-2.1.0
+  - ./configure
+  - make
+  - sudo make install
+
+apt_packages:
+  - libudunits2-dev
+
+r_packages:
+  - rgdal
+
+warnings_are_errors: true
+
+sudo: required
 
 addons:
   apt:

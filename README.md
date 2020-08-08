@@ -11,6 +11,8 @@ status](https://travis-ci.org/anelda/WiGISKeDataViz3.svg?branch=master)](https:/
 status](https://ci.appveyor.com/api/projects/status/github/anelda/WiGISKeDataViz3?branch=master&svg=true)](https://ci.appveyor.com/project/anelda/WiGISKeDataViz3)
 [![Codecov test
 coverage](https://codecov.io/gh/anelda/WiGISKeDataViz3/branch/master/graph/badge.svg)](https://codecov.io/gh/anelda/WiGISKeDataViz3?branch=master)
+[![R build
+status](https://github.com/afrimapr/WiGISKeDataViz3/workflows/R-CMD-check/badge.svg)](https://github.com/afrimapr/WiGISKeDataViz3/actions)
 <!-- badges: end -->
 
 The goal of WiGISKeDataViz3 is to facilitate easy access to datasets,
