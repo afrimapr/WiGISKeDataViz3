@@ -27,6 +27,7 @@ Imports:
     readr,
     magrittr,
     tibble,
-    rlang
+    rlang,
+    shiny
 Remotes: 
     dickoa/rgeoboundaries
