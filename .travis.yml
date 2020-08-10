@@ -1,28 +1,31 @@
 # R for travis: see documentation at https://docs.travis-ci.com/user/languages/r
 
-language: R
+language: r
 
-cache: packages
+sudo: required
 
-apt_packages:
-  - libudunits2-dev
+cache:
+  - packages
+
+
+addons:
+  # postgresql: "10"
+  apt:
+    sources:
+      - sourceline: 'ppa:opencpu/jq'
+      - sourceline: 'ppa:ubuntugis/ubuntugis-unstable'
+      - sourceline: 'deb http://apt.postgresql.org/pub/repos/apt/ trusty-pgdg main'
+        key_url: 'https://www.postgresql.org/media/keys/ACCC4CF8.asc'
+    packages:
+      - libudunits2-dev
+      - libproj-dev
+      - libgeos-dev
+      - libgdal-dev
+      # - postgresql-server-dev-9.6
+      # - postgis
 
 before_install:
-  - sudo apt-get install libproj-dev libgeos++-dev
-  - cd
-  - wget https://github.com/OSGeo/gdal/releases/download/v3.1.2/gdal-3.1.2.tar.gz
-  - tar zxf gdal-3.1.2.tar.gz
-  - cd gdal-3.1.2
-  - ./configure
-  - make
-  - sudo make install
-
-warnings_are_errors: true
-
-r_packages:
-  - rgdal
-  - roxygen2
-  - rmarkdown
+  - R -e 'install.packages("rgdal", repos="http://R-Forge.R-project.org")'
 
 r_github_packages: dickoa/rgeoboundaries
 
