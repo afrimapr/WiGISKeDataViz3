@@ -1,35 +1,28 @@
-#
-# This is a Shiny web application. You can run the application by clicking
-# the 'Run App' button above.
-#
-# Find out more about building applications with Shiny here:
-#
-#    http://shiny.rstudio.com/
-#
+library(shinydashboard)
 
-library(shiny)
+ui <- shinydashboard::dashboardPage(
+    shinydashboard::dashboardHeader(title = "WiGISKe Data Viz Challenge #3"),
+    shinydashboard::dashboardSidebar(),
+    shinydashboard::dashboardBody(
+        # Boxes need to be put in a row (or column)
+        fluidRow(
+            box(selectInput(inputId = "age",
+                            label = "Age group:",
+                            choices = c("10 - 14" = 1014, "15 - 19" = 1519))
+                ),
 
-# Define UI for application that draws a histogram
-ui <- fluidPage(
-    selectInput("dataset", label = "Dataset", choices = ls("package:datasets")),
-    verbatimTextOutput("summary"),
-    tableOutput("table")
-)
+            box(tmap::tmapOutput("map_pregs_normalised"))
 
-# Define server logic required to draw a histogram
-server <- function(input, output, session) {
-    dataset <- reactive({
-        get(input$dataset, "package:datasets")
-    })
+            )
+        )
+    )
 
-    output$summary <- renderPrint({
-        summary(dataset())
-    })
 
-    output$table <- renderTable({
-        dataset()
+server <- function(input, output) {
+
+    output$map_pregs_normalised <- tmap::renderTmap({
+        map_norm_preg(data_sf = ken_preg_sf, age_group = input$age)
     })
 }
 
-# Run the application
-shinyApp(ui = ui, server = server)
+shinyApp(ui, server)

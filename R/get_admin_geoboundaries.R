@@ -24,23 +24,19 @@ get_admin_geoboundaries <- function(country_name = "kenya", boundary_type = "ssc
   }
   else if (admin_level == "adm1"){
     boundary_sf <- rgeoboundaries::gb_adm1(country = country_name, type = boundary_type) %>%
-      dplyr::mutate(shapeName = str_to_title(.data$shapeName))
+      dplyr::mutate(shapeName = stringr::str_to_title(.data$shapeName)) %>%
+      dplyr::mutate(shapeName = dplyr::case_when(.data$shapeName == "Elegeyo-Marakwet" ~ "Elgeyo Marakwet",
+                                                 .data$shapeName == "Murang`a" ~ "Murang'a",
+                                                 .data$shapeName == "Tharaka-Nithi" ~ "Tharaka Nithi",
+                                                 TRUE ~ as.character(.data$shapeName)))
   }
   else if (admin_level == "adm2") {
     boundary_sf <- rgeoboundaries::gb_adm2(country = country_name, type = boundary_type) %>%
-      dplyr::mutate(shapeName = str_to_title(.data$shapeName))
+      dplyr::mutate(shapeName = stringr::str_to_title(.data$shapeName))
   }
   else if (admin_level == "adm3") {
     boundary_sf <- rgeoboundaries::gb_adm3(country = country_name, type = boundary_type) %>%
-      dplyr::mutate(shapeName = str_to_title(.data$shapeName))
-  }
-
-  if (country_name == "kenya" & admin_level == "adm1"){
-    # County name problems in original data from geoboundaries
-    boundary_sf <-dplyr::mutate(shapeName = dplyr::case_when(.data$shapeName == "Elegeyo-Marakwet" ~ "Elgeyo Marakwet",
-                                                             .data$shapeName == "Murang`a" ~ "Murang'a",
-                                                             .data$shapeName == "Tharaka-Nithi" ~ "Tharaka Nithi",
-                                                             TRUE ~ as.character(.data$shapeName)))
+      dplyr::mutate(shapeName = stringr::str_to_title(.data$shapeName))
   }
 
   return(boundary_sf)
