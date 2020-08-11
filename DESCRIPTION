@@ -28,6 +28,10 @@ Imports:
     magrittr,
     tibble,
     rlang,
-    shiny
+    shiny,
+    tmaptools,
+    tmap,
+    sf,
+    shinydashboard
 Remotes: 
     dickoa/rgeoboundaries

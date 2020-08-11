@@ -8,8 +8,7 @@ http://wigis.co.ke/project/visualizing-teenage-pregnancy-and-related-factors/}
 get_pregnancy_data(csv_file)
 }
 \arguments{
-\item{csv_file}{A link to a CSV file online or a path to a local CSV file as character string.
-See googlesheets4 for documentation on ss parameter. Character string ID or URL.}
+\item{csv_file}{A link to a CSV file online or a path to a local CSV file as character string.}
 }
 \value{
 A tibble containing a cleaned up version of the pregnancy data
