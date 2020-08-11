@@ -11,7 +11,7 @@
 #' @importFrom magrittr "%>%"
 #' @importFrom sf st_as_sf
 #' @example
-#' data_sf <- join_adm_boundaries(adm_column = "orgunitlevel1", boundaries_sf = ken_adm1, data_df = norm_preg)
+#' #data_sf <- join_adm_boundaries(adm_column = "orgunitlevel1", boundaries_sf = ken_adm1, data_df = norm_preg)
 #' @author Anelda van der Walt
 #' @export
 join_adm_boundaries <- function(adm_column = "orgunitlevel1", boundaries_sf, data_df) {

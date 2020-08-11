@@ -4,7 +4,7 @@
 \alias{normalise_pregnancy_data}
 \title{Use World bank data to normalise number of female teenagers from 2016 - 2020}
 \usage{
-normalise_pregnancy_data(preg_df, pop_f_1014, pop_f_1519)
+normalise_pregnancy_data(preg_df = NULL, pop_f_1014 = NULL, pop_f_1519 = NULL)
 }
 \arguments{
 \item{preg_df}{The dataframe or tibble created when running get_pregnancy_data("https://tinyurl.com/y35htfoj").}
@@ -22,7 +22,9 @@ A dataframe containing normalised pregnancy data.
 Use World bank data to normalise number of female teenagers from 2016 - 2020
 }
 \examples{
-norm_preg <- normalise_pregnancy_data(preg_df, pop_f_1014, pop_f_1519)
+norm_preg <- normalise_pregnancy_data()
+
+
 }
 \seealso{
 get_pregnancy_data get_wb_gender_age_pop_data

@@ -12,7 +12,7 @@
 #' @importFrom tmaptools get_brewer_pal
 #' @importFrom tmap tm_shape tm_polygons
 #' @example
-#' map_norm_preg_2019 <- map_norm_preg(ken_preg_sf, 1519, 2019)
+#' #map_norm_preg_2019 <- map_norm_preg(ken_preg_sf, 1519, 2019)
 #' @author Anelda van der Walt
 #' @seealso normalise_pregnancy_data join_adm_boundaries
 #' @export
