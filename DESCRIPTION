@@ -32,6 +32,7 @@ Imports:
     tmaptools,
     tmap,
     sf,
-    shinydashboard
+    shinydashboard,
+    leaflet
 Remotes: 
     dickoa/rgeoboundaries

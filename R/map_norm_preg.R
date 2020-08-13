@@ -12,7 +12,7 @@
 #' @importFrom tmaptools get_brewer_pal
 #' @importFrom tmap tm_shape tm_polygons
 #' @example
-#' map_norm_preg_2019 <- map_norm_preg(ken_preg_sf, 1519, 2019)
+#' #map_norm_preg_2019 <- map_norm_preg(ken_preg_sf, 1519, 2019)
 #' @author Anelda van der Walt
 #' @seealso normalise_pregnancy_data join_adm_boundaries
 #' @export
@@ -24,19 +24,25 @@ map_norm_preg <- function(data_sf, age_group, year) {
       dplyr::group_by(.data$orgunitlevel1) %>%
       dplyr::summarise(count = sum(.data$preg_10_14_norm, na.rm = TRUE), .groups = "keep")
 
+      tmap::tmap_mode("view")
+      data_county_map <- tmap::tm_shape(data_county) +
+        tmap::tm_polygons("count", palette = "YlOrBr", style = "fisher",
+                          title = "Normalised pregnancies") +
+        tmap::tm_view(view.legend.position = c("left", "bottom"), set.view = c(lon = 36.3965287 , lat = 0.1651015, zoom = 5))
+
+      } else {
+      data_county <- data_sf %>%
+        dplyr::filter(.data$year == year) %>%
+        dplyr::group_by(.data$orgunitlevel1) %>%
+        dplyr::summarise(count = sum(.data$preg_15_19_norm, na.rm = TRUE), .groups = "keep")
+
+      tmap::tmap_mode("view")
 
       data_county_map <- tmap::tm_shape(data_county) +
         tmap::tm_polygons("count", palette = "YlOrBr", style = "fisher",
-                          title = "Normalised pregnancies per 10'000 girls in age group")
-      } else {
-    data_county <- data_sf %>%
-      dplyr::filter(.data$year == year) %>%
-      dplyr::group_by(.data$orgunitlevel1) %>%
-      dplyr::summarise(count = sum(.data$preg_15_19_norm, na.rm = TRUE), .groups = "keep")
+                          title = "Normalised pregnancies ") +
+        tmap::tm_view(view.legend.position = c("left", "bottom"), set.view = c(lon = 36.3965287 , lat =0.1651015, zoom = 5))
 
-    data_county_map <- tmap::tm_shape(data_county) +
-      tmap::tm_polygons("count", palette = "YlOrBr", style = "fisher",
-                        title = "Normalised pregnancies per 10'000 girls in age group")
   }
 
   return(data_county_map)
