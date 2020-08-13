@@ -9,11 +9,20 @@
 #' @importFrom magrittr "%>%"
 #' @importFrom dplyr case_when mutate
 #' @examples
-#' norm_preg <- normalise_pregnancy_data(preg_df, pop_f_1014, pop_f_1519)
+#' norm_preg <- normalise_pregnancy_data()
+#'
+#'
 #' @author Anelda van der Walt
 #' @seealso get_pregnancy_data get_wb_gender_age_pop_data
 #' @export
-normalise_pregnancy_data <- function(preg_df, pop_f_1014, pop_f_1519){
+normalise_pregnancy_data <- function(preg_df = NULL,
+                                     pop_f_1014 = NULL,
+                                     pop_f_1519 = NULL){
+
+  if (is.null(preg_df)) preg_df <- get_pregnancy_data("https://tinyurl.com/y35htfoj")
+  if (is.null(pop_f_1014)) pop_f_1014 <- get_wb_gender_age_pop_data(indicator_code = "SP.POP.1014.FE")
+  if (is.null(pop_f_1519)) pop_f_1519 <- get_wb_gender_age_pop_data(indicator_code = "SP.POP.1519.FE")
+
   ken_preg_norm <- preg_df %>%
     # Get the population count for each year for the two age groups but leave normalised count as NA if no count available
     # Normalised value is X per 10'000 women in the age group for the year
