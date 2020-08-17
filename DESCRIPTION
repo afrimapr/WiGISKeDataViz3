@@ -17,6 +17,7 @@ Suggests:
 Language: en-US
 Imports: 
     dplyr,
+    rgeoboundaries,
     wbstats,
     stringr,
     lubridate,
