@@ -1,8 +1,13 @@
+if(!require(WiGISKeDataViz3)){
+    remotes::install_github("afrimapr/WiGISKeDataViz3")
+}
+
 library(shinydashboard)
+library(WiGISKeDataViz3)
 
 ui <- shinydashboard::dashboardPage(skin = "black",
     shinydashboard::dashboardHeader(title = "WiGISKe Data Viz Challenge #3",
-                                    titleWidth = 450),
+                                    titleWidth = 350),
     shinydashboard::dashboardSidebar(
         sidebarMenu(
             menuItem("Pregnancy maps", tabName = "maps", icon = icon("map")),
@@ -46,23 +51,23 @@ ui <- shinydashboard::dashboardPage(skin = "black",
 server <- function(input, output, session) {
 
     output$map_pregs_normalised2016 <- leaflet::renderLeaflet({
-        tmap::tmap_leaflet(map_norm_preg(data_sf = ken_preg_sf, age_group = input$age, year = 2016))
+        tmap::tmap_leaflet(WiGISKeDataViz3::map_norm_preg(data_sf = ken_preg_sf, age_group = input$age, year = 2016))
     })
 
     output$map_pregs_normalised2017 <- leaflet::renderLeaflet({
-        tmap::tmap_leaflet(map_norm_preg(data_sf = ken_preg_sf, age_group = input$age, year = 2017))
+        tmap::tmap_leaflet(WiGISKeDataViz3::map_norm_preg(data_sf = ken_preg_sf, age_group = input$age, year = 2017))
     })
 
     output$map_pregs_normalised2018 <- leaflet::renderLeaflet({
-        tmap::tmap_leaflet(map_norm_preg(data_sf = ken_preg_sf, age_group = input$age, year = 2018))
+        tmap::tmap_leaflet(WiGISKeDataViz3::map_norm_preg(data_sf = ken_preg_sf, age_group = input$age, year = 2018))
     })
 
     output$map_pregs_normalised2019 <- leaflet::renderLeaflet({
-        tmap::tmap_leaflet(map_norm_preg(data_sf = ken_preg_sf, age_group = input$age, year = 2019))
+        tmap::tmap_leaflet(WiGISKeDataViz3::map_norm_preg(data_sf = ken_preg_sf, age_group = input$age, year = 2019))
     })
 
     output$map_pregs_normalised2020 <- leaflet::renderLeaflet({
-        tmap::tmap_leaflet(map_norm_preg(data_sf = ken_preg_sf, age_group = input$age, year = 2020))
+        tmap::tmap_leaflet(WiGISKeDataViz3::map_norm_preg(data_sf = ken_preg_sf, age_group = input$age, year = 2020))
     })
 
     output$map_pregs_normalised_info = renderText({
