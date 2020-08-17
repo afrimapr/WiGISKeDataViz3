@@ -1,0 +1,12 @@
+name: wigiskedataviz_viewer
+title: wigiskedataviz_viewer
+username:
+account: talarify
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 2677188
+bundleId: 3525331
+url: https://talarify.shinyapps.io/wigiskedataviz_viewer/
+when: 1597671208.42869
+asMultiple: FALSE
+asStatic: FALSE
