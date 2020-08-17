@@ -19,7 +19,6 @@ Imports:
     dplyr,
     wbstats,
     stringr,
-    rgeoboundaries,
     lubridate,
     janitor,
     tidyr,
