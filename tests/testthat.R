@@ -8,3 +8,4 @@ test_check("WiGISKeDataViz3")
 #   install.packages("lattice", repos = "http://cran.us.r-project.org", dependencies = c("Depends", "Imports", "Suggests"))
 #   library(lattice)
 #   }
+
