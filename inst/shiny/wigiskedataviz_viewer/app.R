@@ -6,12 +6,12 @@ ui <- shinydashboard::dashboardPage(skin = "black",
     shinydashboard::dashboardSidebar(
         sidebarMenu(
             menuItem("Pregnancy maps", tabName = "maps", icon = icon("map")),
-            menuItem("Widgets", tabName = "widgets", icon = icon("th"))
+            menuItem("Literature review", tabName = "lit_review", icon = icon("book-reader"))
             )),
     shinydashboard::dashboardBody(
             tabItems(
                 # First tab content
-                tabItem(tabName = "maps",
+                tabItem(tabName = "maps", h2("Maps showing the normalised pregnancy count by County for 2016-2020"),
                             fluidRow(
                                 box(selectInput(inputId = "age",
                                                 label = "Age group:",
@@ -30,8 +30,11 @@ ui <- shinydashboard::dashboardPage(skin = "black",
                         ),
 
                 # Second tab content
-                tabItem(tabName = "widgets",
-                        h2("Widgets tab content")
+                tabItem(tabName = "lit_review",
+                        h2("Accessing studies about adolescent pregnancy"),
+                        fluidPage(
+                            HTML('<iframe width="1200" height="720" src="https://openknowledgemaps.org/map/172a2825112597e3a6ebeb8e329a10fd&embed=true"></iframe>')
+                        )
                 )
             )
         )
@@ -76,6 +79,8 @@ server <- function(input, output, session) {
                The data was grouped by County although numbers are also available for sub counties and wards and is
                available for further exploration.")
     })
+
+
 }
 
 shinyApp(ui, server)
